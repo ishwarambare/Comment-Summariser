@@ -7,8 +7,23 @@ app = FastAPI(
     description="An AI-powered API to summarise technical support ticket comments."
 )
 
+'''
+comments = [
+    "Customer reports that the application crashes on startup.",
+    "Support team suggested clearing cache and reinstalling, but issue persists.",
+    "Customer provided logs showing a NullPointerException in the main module.",
+    "Support team is investigating the logs and has escalated to the development team.",
+    "Customer is awaiting further updates from support.",
+    "Development team identified a potential memory leak in the latest release, which may be causing the crash.",
+    "Customer is informed about the potential cause and is waiting for a patch from the development team."
+]
+'''
+
+
 class SummariseRequest(BaseModel):
     comments: list[str]
+
+
 
 @app.get("/")
 def read_root():
@@ -23,4 +38,4 @@ def summarise_comments_endpoint(request: SummariseRequest) -> dict:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
