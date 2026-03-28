@@ -37,6 +37,9 @@ htmlcov/
 *.ckpt
 *.safetensors
 
+# AI Agent Configurations
+.qoder/
+
 # Datasets and Large Files
 data/
 datasets/
